@@ -8,12 +8,13 @@ import 'html_text_model.dart';
 class HtmlText extends StatelessWidget {
   final String value;
   final int? maxLines;
+  final TextStyle? textStyle;
 
-  HtmlText(this.value, this.maxLines, {Key? key}) : super(key: key);
+  HtmlText(this.value, {Key? key, this.maxLines, this.textStyle,}) : super(key: key);
 
   FontWeight get _normal => FontWeight.w400;
 
-  TextStyle get _style => GoogleFonts.montserrat(
+  TextStyle get _style => textStyle ?? GoogleFonts.montserrat(
       fontSize: 20, fontWeight: _normal, color: Colors.black);
 
   FontWeight _getFontWeight(HtmlTextFormat value) {
